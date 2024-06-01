@@ -33,7 +33,7 @@ Para executar o projeto localmente sera necessário ter instalado o Docker e Doc
 Primeiramente é necessário clonar o projeto e entrar na pasta raiz.
 
 ```
-git clone git@github.com:eddie-gomes/FGA_Inova-AuthService.git
+git clone https://github.com/eps-fgainova/FGAInova-AuthService.git
 ```
 Antes de rodar o projeto, primeiro é necessário configurar as váriaveis de ambiente usadas no projeto, para isso, crie um arquivo chamado .env na pasta raíz do projeto e coloque as seguintes variáveis:
 

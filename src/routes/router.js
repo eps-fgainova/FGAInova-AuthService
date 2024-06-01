@@ -2,7 +2,6 @@ const { Router } = require('express');
 const { ClienteController } = require('../controller/clienteController');
 const AutenticacaoController = require('../controller/autenticacaoController');
 const verificaToken = require('../midllewares/verificaToken');
-const ProjetoController = require('../controller/ProjetoController');
 
 const routes = new Router();
 
