@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const app = express();
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5555;
 
 try {
   mongoose
@@ -33,3 +33,6 @@ app.use(express.json());
 
 // Rotas
 app.use('/', router);
+
+
+module.exports = app;
