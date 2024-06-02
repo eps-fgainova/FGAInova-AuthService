@@ -7,6 +7,7 @@ const pessoaSchema = new Schema(
     nome: { required: true, type: String },    
     email: { required: true, unique: true, type: String },
     senha: { required: true, type: String },    
+    imagemPerfilUrl: { type: String } // Adicionado campo para imagem de perfil
   },
   { collection: 'pessoa' },
 );

@@ -2,6 +2,7 @@ const { Router } = require('express');
 const { ClienteController } = require('../controller/clienteController');
 const AutenticacaoController = require('../controller/autenticacaoController');
 const verificaToken = require('../midllewares/verificaToken');
+const { upload } = require('../utils/multer');
 
 const routes = new Router();
 
@@ -27,7 +28,7 @@ routes.get('/cliente/:id', verificaToken, (req, res) =>
 routes.delete('/cliente/:email', verificaToken, (req, res) =>
   clienteController.destroy(req, res),
 );
-routes.put('/cliente/:email', verificaToken, (req, res) =>
+routes.put('/cliente/:email', verificaToken, upload.single('imagemPerfil'),(req, res) =>
   clienteController.update(req, res),
 );
 

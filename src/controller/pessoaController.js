@@ -8,7 +8,7 @@ class PessoaController {
     if (this.constructor === PessoaController) {
       throw new Error('Classe Abstrata não pode ser instanciada!');
     }
-    const { Model } = options;    
+    const { Model } = options;
 
     if (Model) {
       this.Model = Model;
@@ -18,14 +18,11 @@ class PessoaController {
   }
 
   async create(req, res) {
-    const { nome, telefone, email, senha, cpf } = req.body;
-
+    const { nome, email, senha } = req.body;
     const pessoa = this.Model({
       nome,
-      telefone,
       email,
       senha,
-      cpf,
     });
 
     try {
@@ -63,11 +60,11 @@ class PessoaController {
     try {
       const userId = req.params.id; // Captura o ID do usuário dos parâmetros da requisição
       const result = await this.Model.findById(userId); // Busca o usuário pelo ID
-  
+
       if (!result) {
         return res.status(404).send({ message: 'Usuário não encontrado' });
       }
-  
+
       res.send(result);
     } catch (err) {
       res.status(500).send({ err: err.message }); // Retorna um erro 500 em caso de erro no servidor
@@ -77,6 +74,9 @@ class PessoaController {
   async update(req, res) {
     const { email } = req.params;
     const updateParams = req.body;
+    if (req.file && req.file.path) {
+      updateParams.imagemPerfilUrl = req.file.path;
+    }
 
     try {
       const cliente = await this.Model.findOneAndUpdate(
