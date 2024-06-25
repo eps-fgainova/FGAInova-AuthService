@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Repositório do projeto FGA Inova - Back  End",
   "main": "index.js",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
-    "start": "node ./src/server.js",
-    "dev": "nodemon ./src/server.js"
+    "start": "nodemon ./src/server.js"
   },
 
   "repository": {
